@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Gym Buddy: @ViewBag.Title </title>
+    <link href="~/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+<body>
+    <header class=>
+        <h1>Welcome to GymBuddy</h1>
+        <menu>
+            <ul>
+                <li><a asp-controller="Gym" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Gym" asp-action="Contact">Contact</a></li>
+            </ul>
+        </menu>
+    </header>
+    <section>
+        <h2>@ViewBag.Title</h2>
+        @RenderBody()
+    </section>
+    <footer>Copyright 2019 GymBuddy LLC</footer>
+
+    <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="~/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/index.js"></script>
+</body>
+</html>
