@@ -1,2 +1,23 @@
-﻿@model
+﻿@model IEnumerable<Lesson>
 
+<h1>Shop</h1>
+<p>Count: @Model.Count()</p>
+<div>
+    @foreach (var l in Model)
+    {
+        <div>
+            <h3>@l.Title</h3>
+            <ul class="lesson-props">
+                <li>Price: @l.Price</li>
+                <li>Instructor: @l.Instructor</li>
+                <li>Category: @l.Category</li>
+                <li>Description: @l.ClassDescription</li>
+                <li>Class Size: @l.ClassSize</li>
+                <li>Instructor Nationality: @l.InstructorNationality</li>
+            </ul>
+            <button id="buyButton" class="btn btn-success">Buy</button>
+            <br />
+        </div>
+
+    }
+</div>

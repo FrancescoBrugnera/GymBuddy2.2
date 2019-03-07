@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GymBuddy.Data;
 using GymBuddy.Data.Entities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -29,6 +30,8 @@ namespace GymBuddy
                 cfg.UseSqlServer(_config.GetConnectionString("GymBuddyConnectionString"));
             });
 
+            services.AddTransient<GymBuddySeeder>();
+            services.AddScoped<IGymBuddyRepository, GymBuddyRepository>();
             services.AddMvc();
         }
 
@@ -46,6 +49,7 @@ namespace GymBuddy
 
             app.UseStaticFiles();
             app.UseNodeModules(env);
+
             app.UseMvc(cfg =>
             {
                 cfg.MapRoute("Default",

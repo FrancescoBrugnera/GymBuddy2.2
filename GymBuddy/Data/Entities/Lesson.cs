@@ -1,14 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DutchTreat.Data.Entities
+namespace GymBuddy.Data.Entities
 {
-  public class Lesson
+    public class Lesson
   {
     public int Id { get; set; }
     public string Category { get; set; }

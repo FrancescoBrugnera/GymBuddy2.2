@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DutchTreat.Data.Entities
+namespace GymBuddy.Data.Entities
 {
   public class OrderItem
   {
