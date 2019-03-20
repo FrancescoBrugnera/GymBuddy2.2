@@ -27,7 +27,7 @@ namespace GymBuddy
             using (var scope = scopeFactory.CreateScope())
             {
                 var seeder = scope.ServiceProvider.GetService<GymBuddySeeder>();
-                seeder.Seed();
+                seeder.SeedAsync().Wait();
             }
         }
 

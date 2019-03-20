@@ -1,5 +1,6 @@
 ﻿using GymBuddy.Data;
 using GymBuddy.Data.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -37,6 +38,7 @@ namespace GymBuddy.Controllers
             return View();
         }
 
+        //[Authorize]
         public IActionResult Shop()
         {
             var results = _repo.GetAllLessons();

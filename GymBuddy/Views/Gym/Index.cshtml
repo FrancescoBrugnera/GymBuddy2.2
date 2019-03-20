@@ -1,32 +1,40 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-    <div class="lesson-info">
-        <h3>Lesson</h3>
-        <ul class="lesson-props">
-            <li>Price</li>
-            <li>Instructor</li>
-            <li>Title</li>
-            <li>Description</li>
-        </ul>
-        <button id="buyButton">Buy</button>
-    </div>
 
-    <div>
-        <div id="loginToggle">Login</div>
-        <form class="pop-up-form">
-            <div>
-                <label>Username</label>
-                <input />
-            </div>
-            <div>
-                <label>Password</label>
-                <input type="password" />
-            </div>
-            <div>
-                <input type="checkbox" />
-                <label>Remember Me</label>
-            </div>
-            <input type="submit" value="Login" />
-        </form>
+<div class="row">
+    <div class="col-md-9">
+        <div class="lesson-info">
+            <h3>Lesson</h3>
+            <ul class="lesson-props">
+                <li>Price</li>
+                <li>Instructor</li>
+                <li>Title</li>
+                <li>Description</li>
+            </ul>
+            <button id="buyButton" class="btn-success">Buy</button>
+        </div>
+
+        <div>
+            <div id="loginToggle">Login</div>
+            <form class="pop-up-form">
+                <div>
+                    <label>Username</label>
+                    <input />
+                </div>
+                <div>
+                    <label>Password</label>
+                    <input type="password" />
+                </div>
+                <div>
+                    <input type="checkbox" />
+                    <label>Remember Me</label>
+                </div>
+                <input type="submit" value="Login" />
+            </form>
+        </div>
     </div>
+    <div class="col-md-3">
+        <p>This is testing the second half of the page</p>
+    </div>
+</div>

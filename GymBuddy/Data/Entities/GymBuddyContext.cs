@@ -1,10 +1,11 @@
 ﻿using GymBuddy.Data.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 
 namespace GymBuddy.Data.Entities
 {
-    public class GymBuddyContext : DbContext
+    public class GymBuddyContext : IdentityDbContext<UserStore>
     {
         public GymBuddyContext(DbContextOptions<GymBuddyContext> options): base(options)
         {
