@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using AutoMapper;
 using GymBuddy.Data;
 using GymBuddy.Data.Entities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace GymBuddy
 {
@@ -32,14 +30,32 @@ namespace GymBuddy
             })
             .AddEntityFrameworkStores<GymBuddyContext>();
 
+            services.AddAuthentication()
+                .AddCookie()
+                .AddJwtBearer(cfg =>
+                {
+                    cfg.TokenValidationParameters = new TokenValidationParameters()
+                    {
+                        ValidIssuer = _config["Tokens:Issuer"],
+                        ValidAudience = _config["Tokens:Audience"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Tokens:Key"]))
+                    };
+                });
+
             services.AddDbContext<GymBuddyContext>(cfg =>
             {
                 cfg.UseSqlServer(_config.GetConnectionString("GymBuddyConnectionString"));
             });
 
+            services.AddAutoMapper();
+
             services.AddTransient<GymBuddySeeder>();
+
             services.AddScoped<IGymBuddyRepository, GymBuddyRepository>();
-            services.AddMvc();
+
+            services.AddMvc()
+                .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1)
+                .AddJsonOptions(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,9 +72,9 @@ namespace GymBuddy
 
             app.UseStaticFiles();
 
-            app.UseAuthentication();
-
             app.UseNodeModules(env);
+
+            app.UseAuthentication();
 
             app.UseMvc(cfg =>
             {

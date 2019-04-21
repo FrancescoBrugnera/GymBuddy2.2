@@ -4,5 +4,10 @@
   },
   "ConnectionStrings": {
     "GymBuddyConnectionString": "server=(localdb)\\ProjectsV13;Database=GymBuddyDb;Integrated Security=true;MultipleActiveResultSets=true;"
+  },
+  "Tokens": {
+    "Key": "ajdikdkellsjfiaojdfjfkajf",
+    "Issuer": "localhost",
+    "Audience" : "users"
   }
 }

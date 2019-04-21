@@ -7,6 +7,13 @@ namespace GymBuddy.Data
     {
         IEnumerable<Lesson> GetAllLessons();
         IEnumerable<Lesson> GetLessonsByCategory(string category);
+
         bool SaveAll();
+
+        IEnumerable<Order> GetAllOrders();
+        Order GetOrderById(string username, int id);
+        void AddOrder(object model);
+        void AddOrderItem(object model);
+        IEnumerable<Order> GetAllOrdersByUser(string username);
     }
 }

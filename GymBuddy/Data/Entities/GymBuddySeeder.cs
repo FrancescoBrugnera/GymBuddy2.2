@@ -69,6 +69,7 @@ namespace GymBuddy.Data
                             UnitPrice = lessons.First().Price
                         }
                     };
+                    //_ctx.Orders.Add(order);
                 }
                 _ctx.SaveChanges();
             }

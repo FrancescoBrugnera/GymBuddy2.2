@@ -4,14 +4,16 @@ using GymBuddy.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GymBuddy.Migrations
 {
     [DbContext(typeof(GymBuddyContext))]
-    partial class GymBuddyContextModelSnapshot : ModelSnapshot
+    [Migration("20190421081811_identitytwo")]
+    partial class identitytwo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
